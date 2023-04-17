@@ -45,6 +45,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["n8n"]
           args: ["worker", "--concurrency={{ .Values.scaling.worker.concurrency }}"]
+          {{- with .Values.envFrom }}
+          envFrom: {{ toYaml .Values.envFrom | nindent 12 }}
+          {{- end }}
           env:
             {{- include "n8n.deploymentPodEnvironments" . | nindent 12 }}
           ports:
