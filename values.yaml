@@ -4,6 +4,13 @@ n8n:
   encryption_key: # n8n creates a random encryption key automatically on the first launch and saves it in the ~/.n8n folder. That key is used to encrypt the credentials before they get saved to the database.
 defaults:
 
+global:
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+
 config: 
   executions:
     pruneData: "true" # prune executions by default
