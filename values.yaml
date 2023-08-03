@@ -185,6 +185,13 @@ podAnnotations: {}
 
 podLabels: {}
 
+probe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 1
+  failureThreshold: 3
+  successThreshold: 1
+
 podSecurityContext: {}
 # fsGroup: 2000
 
